@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 var BANNER =
     'TinyMCE wrapper for Spiral and sf.js v'+pkg.version+'\n' +
-    'https://github.com/spiral-modules/quill/\n' +
+    'https://github.com/spiral-modules/tinymce/\n' +
     'Copyright (c) 2016, Yauheni Yasinau, spiralscout.com';
 
 var bannerPlugin = new webpack.BannerPlugin(BANNER);
@@ -24,7 +24,7 @@ module.exports = {
     output: {
         filename: '[name].js',
         libraryTarget: 'umd',
-        path: path.resolve(__dirname, '..', 'resources/scripts/spiral/')
+        path: path.resolve(__dirname, '..', 'dist/')
     },
     resolve: {
         alias: {
@@ -43,12 +43,12 @@ module.exports = {
                 exclude: /node_modules/
             }
         ],
-        exclude: /node_modules/,
         noParse: []
     },
     devtool: 'source-map',
     plugins: [bannerPlugin, uglifyJsPlugin],
     externals: {
-        "sf": "sf"
+        "sf": "sf",
+        "tinymce": "Tinymce/tinymce.js"
     }
 };

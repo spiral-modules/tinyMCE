@@ -20,25 +20,20 @@ SfTinymce.prototype.name = "tinymce";
 
 SfTinymce.prototype._construct = function (sf, node, options) {
     var that = this;
+
     this.init(sf, node, options);//call parent
 
-    this.toolbarEl = this.node.querySelector('.quill-toolbar');//TODO
-    this.editorEl = this.node.querySelector('.quill-editor');//TODO
+    this.uid = 'sf-uid-' + Math.random().toString(36).substr(2);
+    node.classList.add(this.uid);
+    tinymce.baseURL = "../node_modules/tinymce";
+    tinymce.init(sf.tools.extend({selector: '.' + this.uid}, this.options.config));
 
-    this.editor = new Quill(this.editorEl, { //TODO
-        modules: {
-            'toolbar': { container: this.toolbarEl },
-            'link-tooltip': true
-        },
-        theme: 'snow'
-    });
-
-    if (this.options.value) this.editor.setHTML(this.options.value);
-
-    this.editor.on('text-change', function() {
-       that.save();
-    });
-    that.save();
+    //if (this.options.value) this.editor.setHTML(this.options.value);
+    //
+    //this.editor.on('text-change', function() {
+    //   that.save();
+    //});
+    //that.save();
 };
 
 /**
@@ -47,28 +42,32 @@ SfTinymce.prototype._construct = function (sf, node, options) {
  * @enum {string}
  */
 SfTinymce.prototype.optionsToGrab  = {
-    name: {
-        value: "html",
-        domAttr: "data-name"
-    },
-    value: {
-        value: "",
-        domAttr: "data-value"
+    //name: {
+    //    value: "html",
+    //    domAttr: "data-name"
+    //},
+    //value: {
+    //    value: "",
+    //    domAttr: "data-value"
+    //},
+    config: {
+        value: {},
+        domAttr: "data-config"
     }
 };
 
-SfTinymce.prototype.save = function () {
-    if (!this.input) {
-        this.input = document.createElement("input");
-        this.input.type = "hidden";
-        this.input.name = this.options.name;
-        this.node.appendChild(this.input);
-    }
-    this.input.value = this.editor.getHTML();
-};
+//SfTinymce.prototype.save = function () {
+//    if (!this.input) {
+//        this.input = document.createElement("input");
+//        this.input.type = "hidden";
+//        this.input.name = this.options.name;
+//        this.node.appendChild(this.input);
+//    }
+//    this.input.value = this.editor.getHTML();
+//};
 
 SfTinymce.prototype.die = function () {
-
+    delete this;
 };
 
 export { SfTinymce as default };
