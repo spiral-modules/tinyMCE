@@ -25,15 +25,15 @@ SfTinymce.prototype._construct = function (sf, node, options) {
 
     this.uid = 'sf-uid-' + Math.random().toString(36).substr(2);
     node.classList.add(this.uid);
-    tinymce.baseURL = "../node_modules/tinymce";
+
+    if (this.options.baseURL) {
+        tinymce.baseURL = this.options.baseURL;
+    } else {
+        console.warn('You haven\'t specified baseURL path to tinyMCE resources')
+    }
+
     tinymce.init(sf.tools.extend({selector: '.' + this.uid}, this.options.config));
 
-    //if (this.options.value) this.editor.setHTML(this.options.value);
-    //
-    //this.editor.on('text-change', function() {
-    //   that.save();
-    //});
-    //that.save();
 };
 
 /**
@@ -42,29 +42,14 @@ SfTinymce.prototype._construct = function (sf, node, options) {
  * @enum {string}
  */
 SfTinymce.prototype.optionsToGrab  = {
-    //name: {
-    //    value: "html",
-    //    domAttr: "data-name"
-    //},
-    //value: {
-    //    value: "",
-    //    domAttr: "data-value"
-    //},
+    baseURL: {
+        domAttr: "data-base-url"
+    },
     config: {
         value: {},
         domAttr: "data-config"
     }
 };
-
-//SfTinymce.prototype.save = function () {
-//    if (!this.input) {
-//        this.input = document.createElement("input");
-//        this.input.type = "hidden";
-//        this.input.name = this.options.name;
-//        this.node.appendChild(this.input);
-//    }
-//    this.input.value = this.editor.getHTML();
-//};
 
 SfTinymce.prototype.die = function () {
     delete this;
