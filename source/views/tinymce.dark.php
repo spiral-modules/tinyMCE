@@ -18,6 +18,6 @@
     }
     ?>
     <block:input-body>
-        <textarea name="${name}" class="js-sf-tinymce" node:attributes>${value}</textarea>
+        <textarea name="${name}" data-base-url="${base-url}" data-config="${config}" class="js-sf-tinymce" node:attributes>${value}</textarea>
     </block:input-body>
 </block:body>

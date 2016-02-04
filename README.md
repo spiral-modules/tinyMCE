@@ -1,5 +1,4 @@
-# tinyMCE
-tinyMCE wrapper for Spiral and sf.js
+# tinyMCE Module
 
 ## Usage Example
 
@@ -11,18 +10,6 @@ tinyMCE wrapper for Spiral and sf.js
 ## Update
 `composer update spiral/tinymce`
 `spiral publish spiral/tinymce`
-
-## Local Development
-
-### Installation
-
-    npm install -g gulp
-    npm install
-
-### Building
-
-    gulp build
-
 
 ## License
 

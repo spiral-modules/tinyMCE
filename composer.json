@@ -1,6 +1,6 @@
 {
-    "name": "spiral/quill",
-    "description": "TinyMCE wrapper for Spiral and sf.js",
+    "name": "spiral/tinymce",
+    "description": "TinyMCE wrapper for Spiral",
     "license": "MIT",
     "authors": [
         {
