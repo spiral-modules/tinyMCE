@@ -7,7 +7,7 @@ At frontend (dark template required), simply add virtual tag to your form:
 ```html
 <dark:use bundle="spiral:tinymce-bundle"/>
 ...
-<form:tinymce value="Lorem Ipsum is simply dummy text" name="editor" label="My tinyMCE"/>
+<form:tinymce value="Lorem Ipsum is simply dummy text" name="editor" label="My TinyMCE"/>
 ```
 The code above will be transformed into html and will add required javascript.
 
