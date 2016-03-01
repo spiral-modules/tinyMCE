@@ -1,9 +1,9 @@
 <extends:spiral:element/>
 
 <block:resources>
-    <resource:script href="/resources/scripts/spiral/tinymce/tinymce.min.js"/>
-    <resource:script href="/resources/scripts/spiral/sf.js"/>
-    <resource:script href="/resources/scripts/spiral/sf.tinymce.min.js"/>
+    <resource:script href="resources/scripts/spiral/tinymce/tinymce.min.js"/>
+    <resource:script href="resources/scripts/spiral/sf.js"/>
+    <resource:script href="resources/scripts/spiral/sf.tinymce.min.js"/>
 </block:resources>
 
 <block:body>
