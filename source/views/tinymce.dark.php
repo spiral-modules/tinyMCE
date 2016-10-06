@@ -21,9 +21,9 @@
     ?>
     <block:input-body>
         <textarea name="${name}" data-base-url="${base-url}" class="js-sf-tinymce"
-            <? if (!empty($config) && $config != "''") { ?>
+            <?php if (!empty($config) && $config != "''") { ?>
                 data-config="<?= htmlentities($config, ENT_QUOTES, 'UTF-8') ?>"
-            <? } ?>
+            <?php } ?>
                   node:attributes>${value}</textarea>
     </block:input-body>
 </block:body>
